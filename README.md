@@ -10,12 +10,9 @@ Fornecer informações essenciais para monitorar, gerenciar e otimizar o uso do 
 - 💰 **Entender estrutura de preços do plano Blaze**
 - 🔍 **Verificar saúde da aplicação**
 
-## 🚀 Acesso Rápido
+## 🚀 Acesso 
 
 - **Documentação:** [memogestao-docs](https://ti-secsaude.github.io/memogestao-docs/)
-- **Aplicação:** [memoriais-e-oficios.vercel.app](https://memoriais-e-oficios.vercel.app/)
-- **Console Firebase:** [firebase.google.com](https://firebase.google.com/?hl=pt-br)
-- **Google Cloud Billing:** [console.cloud.google.com/billing](https://console.cloud.google.com/billing)
 
 ## 💬 Suporte
 
