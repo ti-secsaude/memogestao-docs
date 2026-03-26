@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MemoGestão - Documentação Banco de Dados | Secretaria de Saúde VDA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f7;
+            color: #1d1d1f;
+            line-height: 1.6;
+        }
+
+        header {
+            background: white;
+            padding: 2rem;
+            border-bottom: 1px solid #e5e5e7;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin: 3rem 0 1.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem;
+        }
+
+        p {
+            font-size: 1rem;
+            margin: 1rem 0;
+            color: #424245;
+        }
+
+        main {
+            background: white;
+            margin: 2rem auto;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .section {
+            margin: 3rem 0;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid #e5e5e7;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .metric-card {
+            background: #f5f5f7;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #0071e3;
+        }
+
+        .metric-card h4 {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-list {
+            list-style: none;
+            counter-reset: step;
+        }
+
+        .step-list li {
+            counter-increment: step;
+            margin: 1.5rem 0;
+            padding-left: 3rem;
+            position: relative;
+        }
+
+        .step-list li:before {
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #0071e3;
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #0071e3;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s;
+            margin: 1rem 0;
+        }
+
+        .cta-button:hover {
+            background: #0066cc;
+        }
+
+        .warning {
+            background: #fef3cd;
+            border-left: 4px solid #ff9500;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .success {
+            background: #d1f0d6;
+            border-left: 4px solid #34c759;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        code {
+            background: #f5f5f7;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #86868b;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>MemoGestao - Firebase - Banco de Dados</h1>
+            <p style="color: #86868b; margin: 0.5rem 0 0;">Documentação - Projeto Secretaria de Saúde Videira</p>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section class="section">
+            <h2>Visão Geral</h2>
+            <p>Este guia fornece informações essenciais sobre o gerenciamento do Firebase para o projeto de Memoriais e Ofícios da Secretaria de Saúde.</p>
+            <a href="https://firebase.google.com/?hl=pt-br" class="cta-button">Acessar Console Firebase</a>
+        </section>
+
+        <section class="section">
+            <h2>Monitorar Métricas & Cotas Diárias</h2>
+            
+            <h3>📊 Acessar o Dashboard de Uso</h3>
+            <ol class="step-list">
+                <li>Faça login no <a href="https://firebase.google.com/?hl=pt-br" style="color: #0071e3;">Console Firebase</a></li>
+                <li>Clique em <strong>Ir para o console</strong></li>
+                <li>Selecione o projeto <strong>"MemoGestao"</strong> na lista</li>
+                <li>No menu lateral, clique em <strong>Firestore</strong></li>
+                <li>No centro da tela terá um menu com várias opções, clique em <strong>Uso</strong></li>
+                <li>Visualize as métricas em tempo real</li>
+            </ol>
+
+            <h3>🔍 Métricas Principais a Monitorar</h3>
+            
+            <div class="metric-card">
+                <h4>Operações de Leitura do Firestore</h4>
+                <p>Número de documentos lidos diariamente. Limite padrão: <strong>50.000/dia</strong></p>
+            </div>
+
+            <div class="metric-card">
+                <h4>Operações de Escrita do Firestore</h4>
+                <p>Número de documentos modificados. Limite padrão: <strong>20.000/dia</strong></p>
+            </div>
+
+            <div class="metric-card">
+                <h4>Operações de Exclusão</h4>
+                <p>Número de documentos deletados. Limite padrão: <strong>20.000/dia</strong></p>
+            </div>
+
+            <div class="metric-card">
+                <h4>Armazenamento do Banco de Dados</h4>
+                <p>Espaço utilizado em GB. Limite gratuito: <strong>1 GB</strong></p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>⚠️ Atingir o Limite Diário</h2>
+            
+            <div class="warning">
+                <strong>O que acontece?</strong> A aplicação retorna erro 429 (Too Many Requests) e usuários não conseguem executar operações.
+            </div>
+
+            <h3>Como Resolver</h3>
+            <ol class="step-list">
+                <li><strong>Aguardar Reset</strong> — As cotas resetam automaticamente à meia-noite (horário UTC)</li>
+                <li><strong>Contatar Suporte</strong> — Se necessário, abrir ticket com Google Cloud Support</li>
+            </ol>
+
+            <h3>Verificar Limites Atuais</h3>
+            <p>No Console Firebase, acesse:</p>
+            <p><strong>Configurações (⚙️) → Utilização e Faturamento</strong></p>
+        </section>
+
+        <section class="section">
+            <h2>💳 Plano Blaze - Como Funciona a Cobrança</h2>
+            
+            <div class="success">
+                <strong>Bom saber:</strong> Nosso projeto utiliza o plano <strong>Blaze (Pay-as-you-go)</strong>, que cobra apenas pelo que você usa, sem limites diários fixos.
+            </div>
+
+            <h3>📊 Estrutura de Preços do Firestore</h3>
+            
+            <div class="metric-card">
+                <h4>Operações de Leitura</h4>
+                <p><strong>$0,06</strong> por 100.000 operações</p>
+                <p style="color: #86868b; font-size: 0.9rem;">Cada documento consultado = 1 operação</p>
+            </div>
+
+            <div class="metric-card">
+                <h4>Operações de Escrita</h4>
+                <p><strong>$0,18</strong> por 100.000 operações</p>
+                <p style="color: #86868b; font-size: 0.9rem;">Cada documento criado ou atualizado = 1 operação</p>
+            </div>
+
+            <div class="metric-card">
+                <h4>Operações de Exclusão</h4>
+                <p><strong>$0,02</strong> por 100.000 operações</p>
+                <p style="color: #86868b; font-size: 0.9rem;">Cada documento deletado = 1 operação</p>
+            </div>
+
+            <div class="metric-card">
+                <h4>Armazenamento</h4>
+                <p><strong>$0,18</strong> por GB/mês</p>
+                <p style="color: #86868b; font-size: 0.9rem;">Os primeiros 1 GB são gratuitos</p>
+            </div>
+
+            <h3>💰 Exemplo de Custo Mensal</h3>
+            <p>Consumo típico do projeto:</p>
+            <ul style="margin-left: 2rem; margin: 1rem 0 1rem 2rem;">
+                <li><strong>1 milhão de leituras/mês:</strong> 1.000.000 ÷ 100.000 × $0,06 = <strong>$0,60</strong></li>
+                <li><strong>500 mil escritas/mês:</strong> 500.000 ÷ 100.000 × $0,18 = <strong>$0,90</strong></li>
+                <li><strong>100 GB de armazenamento:</strong> (100 - 1) × $0,18 = <strong>$17,82</strong></li>
+                <li style="border-top: 2px solid #e5e5e7; padding-top: 1rem; margin-top: 1rem;">
+                    <strong>Total estimado: ~$19,32/mês</strong>
+                </li>
+            </ul>
+
+            <h3>📱 Monitorar Gastos em Tempo Real</h3>
+            <ol class="step-list">
+                <li>Acesse o <a href="https://console.cloud.google.com/billing" style="color: #0071e3;">Google Cloud Console</a></li>
+                <li>Clique em <strong>Faturamento</strong> no menu lateral</li>
+                <li>Selecione o projeto <strong>"MemoGestao"</strong></li>
+                <li>Veja o gasto do mês atual em tempo real</li>
+                <li>Clique em <strong>Relatórios</strong> para ver histórico detalhado</li>
+            </ol>
+
+            <h3>⚠️ Como Receber Alertas de Custo</h3>
+            <ol class="step-list">
+                <li>No Google Cloud Console, vá em <strong>Faturamento → Orçamentos e alertas</strong></li>
+                <li>Clique em <strong>Criar Orçamento</strong></li>
+                <li>Defina um valor limite (ex: $50/mês)</li>
+                <li>Configure alertas em: 50%, 90% e 100% do orçamento</li>
+                <li>Adicione emails para receber notificações automáticas</li>
+            </ol>
+
+            <div class="warning">
+                <strong>Dica importante:</strong> Configure alertas para não ser surpreendido! Recomendamos um limite de <strong>$50-100/mês</strong>.
+            </div>
+
+        </section>
+
+        <section class="section">
+            <h2>✅ Verificar se está Rodando Normalmente</h2>
+            
+            <h3>Health Check</h3>
+            <ol class="step-list">
+                <li>Acesse a aplicação: <a href="https://memoriais-e-oficios.vercel.app/" style="color: #0071e3;">memoriais-e-oficios.vercel.app</a></li>
+                <li>Tente criar um novo memorial ou ofício (teste de escrita)</li>
+                <li>Tente acessar a lista de documentos (teste de leitura)</li>
+                <li>Se ambos funcionarem, o banco está operacional ✓</li>
+            </ol>
+
+            <h3>Verificação Técnica no Console</h3>
+            <ol class="step-list">
+                <li>Vá em <strong>Firestore</strong></li>
+                <li>Na seção <strong>Dados</strong></li>
+                <li>Verifique se há dados nas coleções esperadas</li>
+            </ol>
+
+            <div class="success">
+                <strong>Tudo OK?</strong> Se consegue ler e escrever dados sem erros, o serviço está funcionando normalmente.
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>📞 Suporte & Próximos Passos</h2>
+            <p>Para dúvidas adicionais ou problemas persistentes:</p>
+            <ul style="margin-left: 2rem;">
+                <li><a href="https://firebase.google.com/support" style="color: #0071e3;">Firebase Support</a></li>
+                <li><a href="https://cloud.google.com/docs" style="color: #0071e3;">Google Cloud Documentation</a></li>
+            </ul>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Documentação atualizada em 26 de março de 2026</p>
+        <p>Para alterações, entre em contato com a equipe técnica.</p>
+    </footer>
+</body>
+</html>
